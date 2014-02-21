@@ -40,10 +40,28 @@
  */
 + (NSString *)mnemonicStringFromRandomHexString:(NSString *)seed
                                        language:(NSString *)language;
+/**
+ Creates a mnemonic code from a hex encoded seed.
 
+ @param seed The hex encoded random seed. Should be between 128-256 bits
+ @param language The language file to use. Currently the only value is 'english'
+
+ @return a string containing the mnemonic code
+ */
 + (NSString *)deterministicSeedStringFromMnemonicString:(NSString *)mnemonic
                                              passphrase:(NSString *)passphrase
                                                language:(NSString *)language;
+
+/**
+ Creates a mnemonic code from a hex encoded seed.
+
+ @param strength The strength of code, should be >=128 & <=256 & divisible by 32
+ @param language The language file to use. Currently the only value is 'english'
+
+ @return a string containing the mnemonic code
+ */
++ (NSString *)generateMnemonicString:(NSNumber *)strength
+                            language:(NSString *)language;
 @end
 
 /**

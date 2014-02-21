@@ -97,6 +97,26 @@
 
   return [[NSData dataWithData:hashKeyData] ny_hexString];
 }
+
++ (NSString *)generateMnemonicString:(NSNumber *)strength
+                            language:(NSString *)language
+{
+  // Check that the strength is divisible by 32
+  if ([strength intValue] % 32 != 0) [NSException raise:@"Strength must be divisible by 32" format:@"Strength Was: %@", strength];
+
+  // Create an array of bytes
+  uint8_t bytes[[strength intValue]];
+  memset(bytes, 0, ([strength intValue]/8)*sizeof(int));
+
+  int status = SecRandomCopyBytes(kSecRandomDefault, [strength intValue]/8, bytes);
+  if(status != -1){
+    NSData* seed = [[NSData alloc] initWithBytes:bytes length:[strength intValue]/8];
+    return [self mnemonicStringFromRandomHexString: [seed ny_hexString] language:language];
+  } else {
+    [NSException raise:@"Unable to get random data!" format:@"Unable to get random data!"];
+  }
+  return nil;
+}
 @end
 
 @implementation NSData (NYMnemonic)

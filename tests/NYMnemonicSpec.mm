@@ -44,6 +44,17 @@ describe(@"NYMnemonic", ^{
       equal(test[2]);
     }
   });
+
+  it(@"It should generate correctly sized phrases.", ^{
+    [[[NYMnemonic generateMnemonicString:@128 language:@"english"] componentsSeparatedByString:@" "] count] should equal(@12);
+    [[[NYMnemonic generateMnemonicString:@256 language:@"english"] componentsSeparatedByString:@" "] count] should equal(@24);
+  });
+
+  it(@"It should throw on impropper strength sizes.", ^{
+    ^{
+      [NYMnemonic generateMnemonicString:@121 language:@"english"];
+    } should raise_exception([NSException class]);
+  });
 });
 
 SPEC_END
