@@ -19,9 +19,29 @@ describe(@"NYMnemonic", ^{
 
   it(@"Should correctly encode the test vectors:", ^{
     for (NSArray *test in [object objectForKey:@"english"]) {
-      NSString *phrase = [NYMnemonic mnemonicStringFromSeed: test[0] usingLanguage:@"english"];
-      NSLog(@"Mnemonic Phrase: %@\nShould Equal: %@\n\n", phrase, test[1]);
-      phrase should equal(test[1]);
+      [NYMnemonic
+          mnemonicStringFromRandomHexString:test[0]
+                                   language:@"english"] should equal(test[1]);
+    }
+  });
+
+  it(@"Should correctly decode the test vectors:", ^{
+    for (NSArray *test in [object objectForKey:@"english"]) {
+      [NYMnemonic deterministicSeedStringFromMnemonicString:test[1]
+                                                 passphrase:@"TREZOR"
+                                                   language:@"english"] should
+      equal(test[2]);
+    }
+  });
+
+  it(@"Should for sure pass this test:", ^{
+    for (NSArray *test in [object objectForKey:@"english"]) {
+      [NYMnemonic deterministicSeedStringFromMnemonicString:
+              [NYMnemonic mnemonicStringFromRandomHexString:test[0]
+                                                   language:@"english"]
+                                                 passphrase:@"TREZOR"
+                                                   language:@"english"] should
+      equal(test[2]);
     }
   });
 });

@@ -22,8 +22,8 @@
 #import "NYMnemonic.h"
 
 @implementation NYMnemonic
-+ (NSString *)mnemonicStringFromSeed:(NSString *)seed
-                       usingLanguage:(NSString *)language {
++ (NSString *)mnemonicStringFromRandomHexString:(NSString *)seed
+                                       language:(NSString *)language {
 
   // Convert our hex string to NSData
   NSData *seedData = [seed ny_dataFromHexString];
@@ -33,9 +33,9 @@
   CC_SHA256(seedData.bytes, (int)seedData.length, hash.mutableBytes);
 
   NSMutableArray *checksumBits = [NSMutableArray
-                                  arrayWithArray:[[NSData dataWithData:hash] ny_hexToBitArray]];
+      arrayWithArray:[[NSData dataWithData:hash] ny_hexToBitArray]];
   NSMutableArray *seedBits =
-  [NSMutableArray arrayWithArray:[seedData ny_hexToBitArray]];
+      [NSMutableArray arrayWithArray:[seedData ny_hexToBitArray]];
 
   // Append the appropriate checksum bits to the seed
   for (int i = 0; i < (int)seedBits.count / 32; i++) {
@@ -44,28 +44,58 @@
 
   NSString *currentFilePath = [NSString stringWithUTF8String:__FILE__];
   NSString *path = [NSString
-                    stringWithFormat:@"%@/languages/%@.txt",
-                    [currentFilePath stringByDeletingLastPathComponent],
-                    language];
+      stringWithFormat:@"%@/languages/%@.txt",
+                       [currentFilePath stringByDeletingLastPathComponent],
+                       language];
 
   NSString *fileText = [NSString stringWithContentsOfFile:path
                                                  encoding:NSUTF8StringEncoding
                                                     error:NULL];
   NSArray *lines = [fileText componentsSeparatedByCharactersInSet:
-                    [NSCharacterSet newlineCharacterSet]];
+                                 [NSCharacterSet newlineCharacterSet]];
 
   // Split into groups of 11, and change to numbers
   NSMutableArray *words =
-  [NSMutableArray arrayWithCapacity:(int)seedBits.count / 11];
+      [NSMutableArray arrayWithCapacity:(int)seedBits.count / 11];
   for (int i = 0; i < (int)seedBits.count / 11; i++) {
     NSUInteger wordNumber =
-    strtol([[[seedBits subarrayWithRange:NSMakeRange(i * 11, 11)]
-             componentsJoinedByString:@""] UTF8String],
-           NULL, 2);
+        strtol([[[seedBits subarrayWithRange:NSMakeRange(i * 11, 11)]
+                    componentsJoinedByString:@""] UTF8String],
+               NULL, 2);
     [words addObject:[lines objectAtIndex:wordNumber]];
   }
 
   return [words componentsJoinedByString:@" "];
+}
+
++ (NSString *)deterministicSeedStringFromMnemonicString:(NSString *)mnemonic
+                                             passphrase:(NSString *)passphrase
+                                               language:(NSString *)language {
+  NSData *data = [mnemonic dataUsingEncoding:NSASCIIStringEncoding
+                        allowLossyConversion:YES];
+  NSData *normalized =
+      [[[NSString alloc] initWithData:data encoding:NSASCIIStringEncoding]
+             dataUsingEncoding:NSASCIIStringEncoding
+          allowLossyConversion:NO];
+
+  NSData *saltData =
+      [[@"mnemonic"
+           stringByAppendingString:
+               [[NSString alloc] initWithData:[passphrase dataUsingEncoding:
+                                                      NSASCIIStringEncoding
+                                                       allowLossyConversion:YES]
+                                     encoding:NSASCIIStringEncoding]]
+             dataUsingEncoding:NSASCIIStringEncoding
+          allowLossyConversion:NO];
+
+  NSMutableData *hashKeyData =
+      [NSMutableData dataWithLength:CC_SHA512_DIGEST_LENGTH];
+
+  CCKeyDerivationPBKDF(kCCPBKDF2, normalized.bytes, normalized.length,
+                       saltData.bytes, saltData.length, kCCPRFHmacAlgSHA512,
+                       2048, hashKeyData.mutableBytes, hashKeyData.length);
+
+  return [[NSData dataWithData:hashKeyData] ny_hexString];
 }
 @end
 
@@ -79,11 +109,11 @@
 
   NSUInteger dataLength = [self length];
   NSMutableString *hexString =
-  [NSMutableString stringWithCapacity:(dataLength * 2)];
+      [NSMutableString stringWithCapacity:(dataLength * 2)];
 
   for (int i = 0; i < dataLength; ++i) {
     [hexString appendString:[NSString stringWithFormat:@"%02lx", (unsigned long)
-                             dataBuffer[i]]];
+                                                       dataBuffer[i]]];
   }
 
   return [NSString stringWithString:hexString];
@@ -91,7 +121,7 @@
 
 - (NSArray *)ny_hexToBitArray {
   NSMutableArray *bitArray =
-  [NSMutableArray arrayWithCapacity:(int)self.length * 8];
+      [NSMutableArray arrayWithCapacity:(int)self.length * 8];
   NSString *hexStr = [self ny_hexString];
   // Loop over the string and convert each char
   for (NSUInteger i = 0; i < [hexStr length]; i++) {
@@ -100,11 +130,11 @@
     // Create NSNumbers from each and append to the array.
     for (NSInteger j = 0; j < bin.length; j++) {
       [bitArray
-       addObject:
-       [NSNumber
-        numberWithInt:[[NSString stringWithFormat:
-                        @"%C", [bin characterAtIndex:
-                                j]] intValue]]];
+          addObject:
+              [NSNumber
+                  numberWithInt:[[NSString stringWithFormat:
+                                               @"%C", [bin characterAtIndex:
+                                                               j]] intValue]]];
     }
   }
   return [NSArray arrayWithArray:bitArray];
@@ -112,59 +142,59 @@
 
 - (NSString *)_hexToBinary:(unichar)value {
   switch (value) {
-    case '0':
-      return @"0000";
+  case '0':
+    return @"0000";
 
-    case '1':
-      return @"0001";
+  case '1':
+    return @"0001";
 
-    case '2':
-      return @"0010";
+  case '2':
+    return @"0010";
 
-    case '3':
-      return @"0011";
+  case '3':
+    return @"0011";
 
-    case '4':
-      return @"0100";
+  case '4':
+    return @"0100";
 
-    case '5':
-      return @"0101";
+  case '5':
+    return @"0101";
 
-    case '6':
-      return @"0110";
+  case '6':
+    return @"0110";
 
-    case '7':
-      return @"0111";
+  case '7':
+    return @"0111";
 
-    case '8':
-      return @"1000";
+  case '8':
+    return @"1000";
 
-    case '9':
-      return @"1001";
+  case '9':
+    return @"1001";
 
-    case 'a':
-    case 'A':
-      return @"1010";
+  case 'a':
+  case 'A':
+    return @"1010";
 
-    case 'b':
-    case 'B':
-      return @"1011";
+  case 'b':
+  case 'B':
+    return @"1011";
 
-    case 'c':
-    case 'C':
-      return @"1100";
+  case 'c':
+  case 'C':
+    return @"1100";
 
-    case 'd':
-    case 'D':
-      return @"1101";
+  case 'd':
+  case 'D':
+    return @"1101";
 
-    case 'e':
-    case 'E':
-      return @"1110";
+  case 'e':
+  case 'E':
+    return @"1110";
 
-    case 'f':
-    case 'F':
-      return @"1111";
+  case 'f':
+  case 'F':
+    return @"1111";
   }
   return @"-1";
 }

@@ -22,6 +22,7 @@
 
 #import <Foundation/Foundation.h>
 #import <CommonCrypto/CommonHMAC.h>
+#import <CommonCrypto/CommonKeyDerivation.h>
 
 /**
  `NYMnemonic` is an objective-c implimentation of BIP-39 style mnemonic codes
@@ -37,8 +38,12 @@
 
  @return a string containing the mnemonic code
  */
-+ (NSString *)mnemonicStringFromSeed:(NSString *)seed
-                       usingLanguage:(NSString *)language;
++ (NSString *)mnemonicStringFromRandomHexString:(NSString *)seed
+                                       language:(NSString *)language;
+
++ (NSString *)deterministicSeedStringFromMnemonicString:(NSString *)mnemonic
+                                             passphrase:(NSString *)passphrase
+                                               language:(NSString *)language;
 @end
 
 /**
