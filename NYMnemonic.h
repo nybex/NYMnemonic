@@ -43,10 +43,11 @@
 /**
  Creates a mnemonic code from a hex encoded seed.
 
- @param seed The hex encoded random seed. Should be between 128-256 bits
+ @param mnemonic The mnemonic phrase to use as the deterministic seed
+ @param passphrase A passphrase to be applied when creating the seed
  @param language The language file to use. Currently the only value is 'english'
 
- @return a string containing the mnemonic code
+ @return a string containing the deterministic seed
  */
 + (NSString *)deterministicSeedStringFromMnemonicString:(NSString *)mnemonic
                                              passphrase:(NSString *)passphrase
