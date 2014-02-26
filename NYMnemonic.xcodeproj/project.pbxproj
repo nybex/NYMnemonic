@@ -10,15 +10,15 @@
 		874FDE1018B803010054E46C /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 874FDE0F18B803010054E46C /* UIKit.framework */; };
 		874FDE1218B803010054E46C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 874FDE1118B803010054E46C /* Foundation.framework */; };
 		874FDE1418B803010054E46C /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 874FDE1318B803010054E46C /* CoreGraphics.framework */; };
-		874FDE2618B8076B0054E46C /* NYMnemonic.h in Sources */ = {isa = PBXBuildFile; fileRef = 874FDE0118B7F37D0054E46C /* NYMnemonic.h */; };
 		874FDE2718B8076B0054E46C /* NYMnemonic.m in Sources */ = {isa = PBXBuildFile; fileRef = 874FDE0218B7F37D0054E46C /* NYMnemonic.m */; };
 		874FDE4718B809E90054E46C /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 874FDE3C18B809E90054E46C /* InfoPlist.strings */; };
 		874FDE4818B809E90054E46C /* Cedar-iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 874FDE3F18B809E90054E46C /* Cedar-iOS.framework */; };
 		874FDE4918B809E90054E46C /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 874FDE4018B809E90054E46C /* main.m */; };
-		874FDE4A18B809E90054E46C /* TestNYMnemonic-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 874FDE4118B809E90054E46C /* TestNYMnemonic-Info.plist */; };
 		874FDE4B18B809E90054E46C /* NYMnemonicSpec.mm in Sources */ = {isa = PBXBuildFile; fileRef = 874FDE4418B809E90054E46C /* NYMnemonicSpec.mm */; };
 		874FDE4C18B809E90054E46C /* Rakefile in Resources */ = {isa = PBXBuildFile; fileRef = 874FDE4518B809E90054E46C /* Rakefile */; };
 		874FDE4D18B809E90054E46C /* vectors.json in Resources */ = {isa = PBXBuildFile; fileRef = 874FDE4618B809E90054E46C /* vectors.json */; };
+		87BCEF2218BD9EE600EEDDF5 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 87BCEF2118BD9EE600EEDDF5 /* Default-568h@2x.png */; };
+		87BCEF2318BDA15800EEDDF5 /* english.txt in Resources */ = {isa = PBXBuildFile; fileRef = 874FDDFF18B7F37D0054E46C /* english.txt */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +40,7 @@
 		874FDE4518B809E90054E46C /* Rakefile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Rakefile; sourceTree = "<group>"; };
 		874FDE4618B809E90054E46C /* vectors.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = vectors.json; sourceTree = "<group>"; };
 		874FDE4E18B80E560054E46C /* libcommonCrypto.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libcommonCrypto.dylib; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.0.sdk/usr/lib/system/libcommonCrypto.dylib; sourceTree = DEVELOPER_DIR; };
+		87BCEF2118BD9EE600EEDDF5 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +61,7 @@
 		874FDDF718B7F3350054E46C = {
 			isa = PBXGroup;
 			children = (
+				87BCEF2118BD9EE600EEDDF5 /* Default-568h@2x.png */,
 				874FDDFE18B7F37D0054E46C /* languages */,
 				874FDE0018B7F37D0054E46C /* LICENSE */,
 				874FDE0118B7F37D0054E46C /* NYMnemonic.h */,
@@ -179,10 +181,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				87BCEF2318BDA15800EEDDF5 /* english.txt in Resources */,
 				874FDE4C18B809E90054E46C /* Rakefile in Resources */,
+				87BCEF2218BD9EE600EEDDF5 /* Default-568h@2x.png in Resources */,
 				874FDE4718B809E90054E46C /* InfoPlist.strings in Resources */,
 				874FDE4D18B809E90054E46C /* vectors.json in Resources */,
-				874FDE4A18B809E90054E46C /* TestNYMnemonic-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -193,7 +196,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				874FDE2618B8076B0054E46C /* NYMnemonic.h in Sources */,
 				874FDE4B18B809E90054E46C /* NYMnemonicSpec.mm in Sources */,
 				874FDE4918B809E90054E46C /* main.m in Sources */,
 				874FDE2718B8076B0054E46C /* NYMnemonic.m in Sources */,
@@ -248,7 +250,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(DEVELOPER_FRAMEWORKS_DIR)",
-					"/Users/Jud/Projects/NYMnemonic/Other\\ Sources/Frameworks",
+					"$(SOURCE_ROOT)/Other\\ Sources/Frameworks",
 				);
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
@@ -307,7 +309,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(DEVELOPER_FRAMEWORKS_DIR)",
-					"/Users/Jud/Projects/NYMnemonic/Other\\ Sources/Frameworks",
+					"$(SOURCE_ROOT)/Other\\ Sources/Frameworks",
 				);
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -356,6 +358,7 @@
 				874FDE2518B803020054E46C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

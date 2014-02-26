@@ -1,3 +1,5 @@
 .DS_Store
 *.xcuserstate
 *.xcuserdatad/
+build/
+NYMnemonic.xcodeproj/project.xcworkspace/xcshareddata/
