@@ -8,5 +8,4 @@
   #import <UIKit/UIKit.h>
   #import <Foundation/Foundation.h>
   #import <Cedar/Cedar.h>
-//  #import <Cedar-iOS/SpecHelper.h>
 #endif
