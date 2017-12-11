@@ -47,10 +47,10 @@ describe(@"NYMnemonic", ^{
 
   it(@"It should generate correctly sized phrases.", ^{
     [[[NYMnemonic generateMnemonicString:@128 language:@"english"]
-         componentsSeparatedByString:@" "] count] should equal(@12);
+         componentsSeparatedByString:@" "] count] should equal(12);
 
     [[[NYMnemonic generateMnemonicString:@256 language:@"english"]
-         componentsSeparatedByString:@" "] count] should equal(@24);
+         componentsSeparatedByString:@" "] count] should equal(24);
   });
 
   it(@"It should throw on impropper strength sizes.", ^{

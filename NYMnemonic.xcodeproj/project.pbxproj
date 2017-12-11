@@ -7,19 +7,31 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		874FDE1018B803010054E46C /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 874FDE0F18B803010054E46C /* UIKit.framework */; };
-		874FDE1218B803010054E46C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 874FDE1118B803010054E46C /* Foundation.framework */; };
-		874FDE1418B803010054E46C /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 874FDE1318B803010054E46C /* CoreGraphics.framework */; };
 		874FDE2718B8076B0054E46C /* NYMnemonic.m in Sources */ = {isa = PBXBuildFile; fileRef = 874FDE0218B7F37D0054E46C /* NYMnemonic.m */; };
 		874FDE4718B809E90054E46C /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 874FDE3C18B809E90054E46C /* InfoPlist.strings */; };
-		874FDE4818B809E90054E46C /* Cedar-iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 874FDE3F18B809E90054E46C /* Cedar-iOS.framework */; };
 		874FDE4918B809E90054E46C /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 874FDE4018B809E90054E46C /* main.m */; };
 		874FDE4B18B809E90054E46C /* NYMnemonicSpec.mm in Sources */ = {isa = PBXBuildFile; fileRef = 874FDE4418B809E90054E46C /* NYMnemonicSpec.mm */; };
 		874FDE4C18B809E90054E46C /* Rakefile in Resources */ = {isa = PBXBuildFile; fileRef = 874FDE4518B809E90054E46C /* Rakefile */; };
 		874FDE4D18B809E90054E46C /* vectors.json in Resources */ = {isa = PBXBuildFile; fileRef = 874FDE4618B809E90054E46C /* vectors.json */; };
 		87BCEF2218BD9EE600EEDDF5 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 87BCEF2118BD9EE600EEDDF5 /* Default-568h@2x.png */; };
 		87BCEF2318BDA15800EEDDF5 /* english.txt in Resources */ = {isa = PBXBuildFile; fileRef = 874FDDFF18B7F37D0054E46C /* english.txt */; };
+		9F3B2FDE1FDB515F000CFCC7 /* Cedar.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 9FD075A61FDB491C006CA49B /* Cedar.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		9FD075A71FDB491C006CA49B /* Cedar.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9FD075A61FDB491C006CA49B /* Cedar.framework */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		9F3B2FDF1FDB515F000CFCC7 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				9F3B2FDE1FDB515F000CFCC7 /* Cedar.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		874FDDFF18B7F37D0054E46C /* english.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = english.txt; sourceTree = "<group>"; };
@@ -28,19 +40,15 @@
 		874FDE0218B7F37D0054E46C /* NYMnemonic.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NYMnemonic.m; sourceTree = "<group>"; };
 		874FDE0318B7F37D0054E46C /* NYMnemonic.podspec */ = {isa = PBXFileReference; lastKnownFileType = text; path = NYMnemonic.podspec; sourceTree = "<group>"; };
 		874FDE0C18B803010054E46C /* TestNYMnemonic.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TestNYMnemonic.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		874FDE0F18B803010054E46C /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
-		874FDE1118B803010054E46C /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
-		874FDE1318B803010054E46C /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = Library/Frameworks/CoreGraphics.framework; sourceTree = DEVELOPER_DIR; };
 		874FDE3D18B809E90054E46C /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		874FDE3F18B809E90054E46C /* Cedar-iOS.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = "Cedar-iOS.framework"; sourceTree = "<group>"; };
 		874FDE4018B809E90054E46C /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		874FDE4118B809E90054E46C /* TestNYMnemonic-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "TestNYMnemonic-Info.plist"; sourceTree = "<group>"; };
 		874FDE4218B809E90054E46C /* TestNYMnemonic-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "TestNYMnemonic-Prefix.pch"; sourceTree = "<group>"; };
 		874FDE4418B809E90054E46C /* NYMnemonicSpec.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = NYMnemonicSpec.mm; sourceTree = "<group>"; };
 		874FDE4518B809E90054E46C /* Rakefile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Rakefile; sourceTree = "<group>"; };
 		874FDE4618B809E90054E46C /* vectors.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = vectors.json; sourceTree = "<group>"; };
-		874FDE4E18B80E560054E46C /* libcommonCrypto.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libcommonCrypto.dylib; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.0.sdk/usr/lib/system/libcommonCrypto.dylib; sourceTree = DEVELOPER_DIR; };
 		87BCEF2118BD9EE600EEDDF5 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		9FD075A61FDB491C006CA49B /* Cedar.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Cedar.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -48,10 +56,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				874FDE1418B803010054E46C /* CoreGraphics.framework in Frameworks */,
-				874FDE1018B803010054E46C /* UIKit.framework in Frameworks */,
-				874FDE4818B809E90054E46C /* Cedar-iOS.framework in Frameworks */,
-				874FDE1218B803010054E46C /* Foundation.framework in Frameworks */,
+				9FD075A71FDB491C006CA49B /* Cedar.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -69,7 +74,6 @@
 				874FDE0318B7F37D0054E46C /* NYMnemonic.podspec */,
 				874FDE4318B809E90054E46C /* tests */,
 				874FDE3B18B809E90054E46C /* Other Sources */,
-				874FDE0E18B803010054E46C /* Frameworks */,
 				874FDE0D18B803010054E46C /* Products */,
 			);
 			sourceTree = "<group>";
@@ -90,17 +94,6 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		874FDE0E18B803010054E46C /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				874FDE4E18B80E560054E46C /* libcommonCrypto.dylib */,
-				874FDE0F18B803010054E46C /* UIKit.framework */,
-				874FDE1118B803010054E46C /* Foundation.framework */,
-				874FDE1318B803010054E46C /* CoreGraphics.framework */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
 		874FDE3B18B809E90054E46C /* Other Sources */ = {
 			isa = PBXGroup;
 			children = (
@@ -116,7 +109,7 @@
 		874FDE3E18B809E90054E46C /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				874FDE3F18B809E90054E46C /* Cedar-iOS.framework */,
+				9FD075A61FDB491C006CA49B /* Cedar.framework */,
 			);
 			path = Frameworks;
 			sourceTree = "<group>";
@@ -141,6 +134,7 @@
 				874FDE0818B803010054E46C /* Sources */,
 				874FDE0918B803010054E46C /* Frameworks */,
 				874FDE0A18B803010054E46C /* Resources */,
+				9F3B2FDF1FDB515F000CFCC7 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -157,7 +151,7 @@
 		874FDDF818B7F3350054E46C /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0500;
+				LastUpgradeCheck = 0910;
 			};
 			buildConfigurationList = 874FDDFB18B7F3350054E46C /* Build configuration list for PBXProject "NYMnemonic" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -219,12 +213,64 @@
 		874FDDFC18B7F3350054E46C /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD)";
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				ONLY_ACTIVE_ARCH = YES;
 			};
 			name = Debug;
 		};
 		874FDDFD18B7F3350054E46C /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD)";
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 			};
 			name = Release;
 		};
@@ -232,7 +278,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				ARCHS = "$(ARCHS_STANDARD)";
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
@@ -244,6 +290,7 @@
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_STRICT_PROTOTYPES = NO;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
@@ -251,6 +298,8 @@
 					"$(inherited)",
 					"$(DEVELOPER_FRAMEWORKS_DIR)",
 					"$(SOURCE_ROOT)/Other\\ Sources/Frameworks",
+					"$(PROJECT_DIR)/Other\\ Sources/Frameworks",
+					"$(PROJECT_DIR)/Other\\ Sources/Frameworks",
 				);
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
@@ -269,17 +318,16 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				INFOPLIST_FILE = "$(SRCROOT)/Other Sources/TestNYMnemonic-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
-				LIBRARY_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(SDKROOT)/usr/lib/system",
-				);
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				ONLY_ACTIVE_ARCH = YES;
 				OTHER_LDFLAGS = (
 					"-ObjC",
 					"-all_load",
 					"-lstdc++",
 				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.nybex.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
 				WRAPPER_EXTENSION = app;
@@ -290,7 +338,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				ARCHS = "$(ARCHS_STANDARD)";
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
@@ -302,6 +350,7 @@
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_STRICT_PROTOTYPES = NO;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = YES;
@@ -310,6 +359,8 @@
 					"$(inherited)",
 					"$(DEVELOPER_FRAMEWORKS_DIR)",
 					"$(SOURCE_ROOT)/Other\\ Sources/Frameworks",
+					"$(PROJECT_DIR)/Other\\ Sources/Frameworks",
+					"$(PROJECT_DIR)/Other\\ Sources/Frameworks",
 				);
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -321,17 +372,16 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				INFOPLIST_FILE = "$(SRCROOT)/Other Sources/TestNYMnemonic-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
-				LIBRARY_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(SDKROOT)/usr/lib/system",
-				);
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
 				OTHER_LDFLAGS = (
 					"-ObjC",
 					"-all_load",
 					"-lstdc++",
 				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.nybex.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
